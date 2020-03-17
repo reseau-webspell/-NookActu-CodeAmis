@@ -10,13 +10,13 @@ import * as modules from './modules/index';
  * @class Client
  * @extends AxonCore.AxonClient
  */
-class Client extends AxonClient {
+class NookClient extends AxonClient {
     constructor(client, axonOptions) {
         super(client, axonOptions, modules);
     }
 
     onInit() {
-        this.staff.contributors = [];
+        console.log('on init')
     }
 
     onStart() {
@@ -28,23 +28,18 @@ class Client extends AxonClient {
     }
 
     initStatus() {
-        // called after ready event
-        // overrides default editStatus
-        // used to setup custom status
         this.botClient.editStatus(null, {
-            name: `AxonCore | ${this.settings.prefixes[0]}help`,
+            name: `NookAmis | ${this.settings.prefixes[0]}help`,
             type: 0,
         } );
     }
 
-    // disabled
     // eslint-disable-next-line no-unused-vars
     $sendFullHelp(msg, guildConfig) {
         // override sendFullHelp method
         return this.axonUtils.sendMessage(msg.channel, 'Full Help override');
     }
 
-    // disabled
     // eslint-disable-next-line no-unused-vars
     $sendHelp(command, env) {
         // override sendHelp method
@@ -52,4 +47,4 @@ class Client extends AxonClient {
     }
 }
 
-export default Client;
+export default NookClient;

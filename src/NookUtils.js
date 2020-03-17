@@ -1,6 +1,6 @@
 import { Utils } from 'axoncore';
 
-class MyUtils extends Utils {
+class NookUtils extends Utils {
     constructor(...args) {
         super(...args);
         this.invite = /^(discord.gg\/|discordapp.com\/invite\/)([a-z0-9]+)$/gi;
@@ -29,4 +29,4 @@ class MyUtils extends Utils {
     }
 }
 
-export default MyUtils;
+export default NookUtils;

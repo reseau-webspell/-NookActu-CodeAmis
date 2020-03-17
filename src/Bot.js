@@ -2,13 +2,13 @@ import Eris from 'eris';
 
 import { AxonOptions } from 'axoncore';
 
-import Client from './Client';
+import NookClient from './NookClient';
 
 import botConfig from './configs/config.json';
 import secret from './configs/secret.json';
 import lang from './configs/lang.json';
 
-import MyUtils from './MyUtils';
+import NookUtils from './NookUtils';
 
 const axonOptions = new AxonOptions( {
     prefixes: botConfig.prefixes,
@@ -21,11 +21,9 @@ const axonOptions = new AxonOptions( {
     template: botConfig.template,
     custom: { },
 },
-// webhooks
 secret.webhooks,
-// extensions
 {
-    utils: MyUtils, // use your own Utils
+    utils: NookUtils, // use your own Utils
     logger: null, // custom Logger
     DBProvider: null, // custom DB Service
     DBLocation: `${__dirname}/database/`,
@@ -46,7 +44,7 @@ const client = new Eris.Client(
         defaultImageFormat: 'png',
         defaultImageSize: 512,
         disableEveryone: true,
-        getAllUsers: false,
+        getAllUsers: true,
         messageLimit: 100,
         restMode: true,
         disableEvents: {
@@ -55,7 +53,7 @@ const client = new Eris.Client(
     },
 );
 
-const Bot = new Client(
+const Bot = new NookClient(
     client,
     axonOptions,
 );
