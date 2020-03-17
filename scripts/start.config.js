@@ -1,7 +1,7 @@
 module.exports = {
     apps: [
         {
-            name: 'AxonCore',
+            name: 'NookAmis',
             script: 'index.js',
             cwd: 'src',
             args: ['--color'],

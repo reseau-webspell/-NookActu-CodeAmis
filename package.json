@@ -1,10 +1,9 @@
 {
-  "name": "axoncore-app",
+  "name": "nookamis",
   "version": "1.0.0",
-  "description": "Boilerplate AxonCore app [eris-esm].",
+  "description": "NookAmis - Companion bot for NookActu.",
   "author": "KhaaZ",
-  "link": "https://github.com/Khaazz/AxonCore",
-  "license": "MIT",
+  "link": "https://github.com/reseau-webspell/NookAmis",
   "engines": {
     "node": ">=8.0.0"
   },
@@ -26,11 +25,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Khaazz/AxonCore.git"
+    "url": "git+https://github.com/reseau-webspell/NookAmis"
   },
   "bugs": {
-    "url": "https://github.com/Khaazz/AxonCore/issues"
+    "url": "https://github.com/reseau-webspell/NookAmis/issues"
   },
-  "homepage": "https://github.com/Khaazz/AxonCore#readme"
+  "homepage": "https://github.com/reseau-webspell/NookAmis#readme"
 }
   
