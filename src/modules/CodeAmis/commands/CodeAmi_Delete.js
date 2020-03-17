@@ -1,15 +1,13 @@
-import { Command, CommandOptions, CommandResponse } from 'axoncore';
+import { Command, CommandOptions } from 'axoncore';
 
-class CodeAmi_Delete extends Command {
+class CodeAmiDelete extends Command {
     constructor(module) {
         super(module);
 
         this.label = 'delete';
-        this.aliases = [
-            'remove',
-            'suppr',
-        ];
+        this.aliases = ['remove', 'suppr'];
 
+        this.isSubcmd = true;
         this.hasSubcmd = false;
 
         this.info = {
@@ -30,4 +28,4 @@ class CodeAmi_Delete extends Command {
     }
 }
 
-export default CodeAmi_Delete;
+export default CodeAmiDelete;

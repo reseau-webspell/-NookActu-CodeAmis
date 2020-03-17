@@ -1,18 +1,16 @@
-import { Command, CommandOptions, CommandResponse } from 'axoncore';
+import { Command, CommandOptions } from 'axoncore';
 
-import Pong from './Ping_Pong';
+import Delete from './CodeAmi_Delete';
 
 class CodeAmi extends Command {
     constructor(module) {
         super(module);
 
         this.label = 'codeami';
-        this.aliases = [
-            'ca',
-        ];
+        this.aliases = ['ca'];
 
         this.hasSubcmd = true;
-        this.subcmds = [Pong];
+        this.subcmds = [Delete];
 
         this.info = {
             owners: ['KhaaZ'],
