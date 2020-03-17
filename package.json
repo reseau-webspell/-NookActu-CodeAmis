@@ -10,7 +10,7 @@
   "dependencies": {
     "axoncore": "git+https://www.github.com/khaazz/axoncore.git#dev",
     "chalk": "^2.4.2",
-    "eris": "git+https://www.github.com/khaazz/eris.git#axoncore",
+    "eris": "git+https://www.github.com/khaazz/eris.git#ratelimit",
     "esm": "^3.2.25",
     "pm2": "^4.2.1"
   },
@@ -32,4 +32,3 @@
   },
   "homepage": "https://github.com/reseau-webspell/NookAmis#readme"
 }
-  
