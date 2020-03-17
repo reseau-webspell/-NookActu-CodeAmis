@@ -1,7 +1,6 @@
 import { Module } from 'axoncore';
 
 import * as commands from './commands/index';
-import * as listeners from './listeners/index';
 
 class Core extends Module {
     constructor(...args) {
@@ -19,7 +18,7 @@ class Core extends Module {
     }
 
     init() {
-        return { commands, listeners };
+        return { commands };
     }
 }
 

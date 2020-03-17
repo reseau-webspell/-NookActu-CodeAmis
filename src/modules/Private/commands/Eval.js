@@ -61,7 +61,7 @@ class Eval extends Command {
             }
         } catch (err) {
             this.logger.debug(err.stack);
-            return this.sendError(msg.channel, err.message ? err.message : `Error: ${err}`);
+            return this.sendCodeError(msg.channel, err.message ? err.message : `Error: ${err}`);
         }
 
         evalString = this.cleanUpToken(evalString);
@@ -94,7 +94,11 @@ class Eval extends Command {
     }
 
     sendCode(channel, content, lang = 'js') {
-        return this.sendMessage(channel, `\`\`\`${lang}\n${content}\`\`\``);
+        return this.sendSuccess(channel, `\`\`\`${lang}\n${content}\`\`\``);
+    }
+
+    sendCodeError(channel, content, lang = 'js') {
+        return this.sendError(channel, `\`\`\`${lang}\n${content}\`\`\``);
     }
 }
 
