@@ -33,6 +33,65 @@ class UserDB extends Store {
         }
         return user;
     }
+
+    async addACPC(userID, code) {
+        await this.getOrFetch(userID);
+
+        const user = await this.manager.updateUserKey(userID, 'acpc', code);
+        this.set(userID, user);
+        return user;
+    }
+
+    async addDS(userID, code) {
+        await this.getOrFetch(userID);
+
+        const user = await this.manager.updateUserKey(userID, 'ds', code);
+        this.set(userID, user);
+        return user;
+    }
+
+    async addSwitch(userID, code) {
+        await this.getOrFetch(userID);
+
+        const user = await this.manager.updateUserKey(userID, 'switch', code);
+        this.set(userID, user);
+        return user;
+    }
+
+    async deleteACPC(userID) {
+        await this.getOrFetch(userID);
+
+        const user = await this.manager.updateUserKey(userID, 'acpc', 'xxxx-xxxx-xxx');
+        this.set(userID, user);
+        return user;
+    }
+
+    async deleteDS(userID) {
+        await this.getOrFetch(userID);
+
+        const user = await this.manager.updateUserKey(userID, 'ds', 'xxxx-xxxx-xxxx');
+        this.set(userID, user);
+        return user;
+    }
+
+    async deleteSwitch(userID) {
+        await this.getOrFetch(userID);
+
+        const user = await this.manager.updateUserKey(userID, 'switch', 'SW-xxxx-xxxx-xxxx');
+        this.set(userID, user);
+        
+        return user;
+    }
+
+    async deleteAll(userID) {
+        const user = await this.getOrFetch(userID);
+
+        user.ds = 'xxxx-xxxx-xxxx';
+        user.switch = 'SW-xxxx-xxxx-xxxx';
+        user.acpc = 'xxxx-xxxx-xxx';
+        this.set(userID, user);
+        return this.manager.writeUser(userID, user);
+    }
 }
 
 export default UserDB;
