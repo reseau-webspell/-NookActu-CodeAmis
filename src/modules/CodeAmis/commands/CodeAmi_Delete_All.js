@@ -12,10 +12,10 @@ class CodeAmiDeleteAll extends Command {
 
         this.info = {
             owners: ['KhaaZ'],
-            name: 'ca delete',
-            description: 'Supprime un code ami.',
-            usage: 'ca delete',
-            examples: ['ca delete'],
+            name: 'ca delete all',
+            description: 'Supprime tous les codes amis de la personne qui demande.',
+            usage: 'ca delete all',
+            examples: ['ca delete all'],
         };
 
         this.options = new CommandOptions(this, {

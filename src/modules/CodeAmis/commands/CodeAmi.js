@@ -24,8 +24,8 @@ class CodeAmi extends Command {
             owners: ['KhaaZ'],
             name: 'ca',
             description: 'Affiche les codes ami d\'une personne.',
-            usage: 'ca',
-            examples: ['ca'],
+            usage: 'ca <user>',
+            examples: ['ca', 'ca @Sendaisies'],
         };
 
         this.options = new CommandOptions(this, {

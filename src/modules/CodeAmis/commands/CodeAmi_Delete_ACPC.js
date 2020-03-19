@@ -12,10 +12,10 @@ class CodeAmiDeleteACPC extends Command {
 
         this.info = {
             owners: ['KhaaZ'],
-            name: 'ca delete',
-            description: 'Supprime un code ami.',
-            usage: 'ca delete',
-            examples: ['ca delete'],
+            name: 'ca delete acpc',
+            description: 'Supprime le code ami ACPC de la personne qui demande.',
+            usage: 'ca delete acpc',
+            examples: ['ca delete acpc'],
         };
 
         this.options = new CommandOptions(this, {

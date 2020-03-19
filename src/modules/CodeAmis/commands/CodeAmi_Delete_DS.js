@@ -17,10 +17,10 @@ class CodeAmiDeleteDS extends Command {
 
         this.info = {
             owners: ['KhaaZ'],
-            name: 'ca delete',
-            description: 'Supprime un code ami.',
-            usage: 'ca delete',
-            examples: ['ca delete'],
+            name: 'ca delete 3DS',
+            description: 'Supprime le code ami 3DS de la personne qui demande.',
+            usage: 'ca delete 3DS',
+            examples: ['ca delete 3DS'],
         };
 
         this.options = new CommandOptions(this, {

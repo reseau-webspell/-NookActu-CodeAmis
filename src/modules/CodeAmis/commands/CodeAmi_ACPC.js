@@ -12,10 +12,10 @@ class CodeAmiACPC extends Command {
 
         this.info = {
             owners: ['KhaaZ'],
-            name: 'ca',
-            description: 'Affiche les codes ami d\'une personne.',
-            usage: 'ca',
-            examples: ['ca'],
+            name: 'ca acpc',
+            description: 'Ajoute le code ami pocket camp de la personne qui demande.',
+            usage: 'ca acpc xxxx-xxxx-xxx',
+            examples: ['ca acpc xxxx-xxxx-xxx'],
         };
 
         this.options = new CommandOptions(this, {

@@ -17,10 +17,10 @@ class CodeAmiDS extends Command {
 
         this.info = {
             owners: ['KhaaZ'],
-            name: 'ca',
-            description: 'Affiche les codes ami d\'une personne.',
-            usage: 'ca',
-            examples: ['ca'],
+            name: 'ca 3DS',
+            description: 'Ajoute le code ami 3DS de la personne qui demande.',
+            usage: 'ca 3DS xxxx-xxxx-xxxx',
+            examples: ['ca 3DS xxxx-xxxx-xxxx'],
         };
 
         this.options = new CommandOptions(this, {

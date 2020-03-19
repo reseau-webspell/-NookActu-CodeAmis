@@ -12,10 +12,10 @@ class CodeAmiSwitch extends Command {
 
         this.info = {
             owners: ['KhaaZ'],
-            name: 'ca',
-            description: 'Affiche les codes ami d\'une personne.',
-            usage: 'ca',
-            examples: ['ca'],
+            name: 'ca switch',
+            description: 'Ajoute le code ami Switch de la personne qui demande.',
+            usage: 'ca switch SW-xxxx-xxxx-xxxx',
+            examples: ['ca switch SW-xxxx-xxxx-xxxx'],
         };
 
         this.options = new CommandOptions(this, {

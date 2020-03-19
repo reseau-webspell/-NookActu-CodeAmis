@@ -12,10 +12,10 @@ class CodeAmiDeleteSwitch extends Command {
 
         this.info = {
             owners: ['KhaaZ'],
-            name: 'ca delete',
-            description: 'Supprime un code ami.',
-            usage: 'ca delete',
-            examples: ['ca delete'],
+            name: 'ca delete switch',
+            description: 'Supprime le code ami Switch de la personne qui demande.',
+            usage: 'ca delete switch',
+            examples: ['ca delete switch'],
         };
 
         this.options = new CommandOptions(this, {

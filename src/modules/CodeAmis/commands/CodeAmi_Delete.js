@@ -24,7 +24,7 @@ class CodeAmiDelete extends Command {
         this.info = {
             owners: ['KhaaZ'],
             name: 'ca delete',
-            description: 'Supprime un code ami.',
+            description: 'Supprime un code ami',
             usage: 'ca delete',
             examples: ['ca delete'],
         };
