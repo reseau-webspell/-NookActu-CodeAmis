@@ -26,7 +26,7 @@ secret.webhooks,
     utils: NookUtils, // use your own Utils
     logger: null, // custom Logger
     DBProvider: null, // custom DB Service
-    DBLocation: `${__dirname}/database/`,
+    DBLocation: `${__dirname}/../database/`,
 
     axonConfig: null,
     guildConfig: null,
