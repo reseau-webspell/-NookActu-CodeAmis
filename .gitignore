@@ -1,4 +1,5 @@
 **/database/*.json
+**/database/Users/*.json
 secret.json
 
 # Logs
