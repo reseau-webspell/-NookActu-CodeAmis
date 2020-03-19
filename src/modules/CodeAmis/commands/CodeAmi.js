@@ -1,4 +1,4 @@
-import { Command, CommandOptions } from 'axoncore';
+import { Command, CommandOptions, CommandPermissions } from 'axoncore';
 
 import Delete from './CodeAmi_Delete';
 import DS from './CodeAmi_DS';
@@ -30,12 +30,14 @@ class CodeAmi extends Command {
 
         this.options = new CommandOptions(this, {
             argsMin: 0,
-            sendUsageMessage: true,
+        } );
+
+        this.permissions = new CommandPermissions(this, {
+            bot: ['sendMessages', 'embedLinks'],
         } );
     }
 
     async execute( { msg, args } ) {
-        console.log('ARGS', args);
         const user = args.length === 0
             ? msg.author
             : this.Resolver.member(msg.channel.guild, args);
@@ -43,7 +45,21 @@ class CodeAmi extends Command {
             return this.sendError(msg.channel, 'Mentionnez un utilisateur valide!');
         }
         const codeAmis = await this.axon.userDB.getOrFetch(user.id);
-        return this.sendSuccess(msg.channel, `Code amis pour ${user.username}:\nDS: ${codeAmis.ds}\nACPC: ${codeAmis.acpc}\nSwitch: ${codeAmis.switch}`);
+        
+        return this.sendMessage(msg.channel, {
+            embed: {
+                fields: [
+                    { name: '[CODE 3DS]', value: codeAmis.ds, inline: true },
+                    { name: '[CODE SWITCH]', value: codeAmis.switch, inline: true },
+                    { name: '[CODE POCKET CAMP]', value: codeAmis.acpc, inline: false },
+                ],
+                thumbnail: {
+                    url: user.avatarURL,
+                },
+                author: { name: `Codes amis de ${user.username}#${user.discriminator}`, icon_url: '' },
+                color: 10076927,
+            },
+        } );
     }
 }
 
