@@ -277,9 +277,9 @@ axios@^0.19.0:
   dependencies:
     follow-redirects "1.5.10"
 
-"axoncore@git+https://www.github.com/khaazz/axoncore.git#dev":
+"axoncore@git+https://github.com/khaazz/axoncore.git#dev":
   version "2.0.0"
-  resolved "git+https://www.github.com/khaazz/axoncore.git#4bd9b1a66798f829ab2e9af979c22c7e7e0a56c4"
+  resolved "git+https://github.com/khaazz/axoncore.git#4bd9b1a66798f829ab2e9af979c22c7e7e0a56c4"
   dependencies:
     esm "^3.2.25"
   optionalDependencies:
@@ -593,9 +593,9 @@ enquirer@^2.3.2:
   dependencies:
     ansi-colors "^3.2.1"
 
-"eris@git+https://www.github.com/khaazz/eris.git#ratelimit":
+"eris@git+https://github.com/khaazz/eris.git#ratelimit":
   version "0.11.2"
-  resolved "git+https://www.github.com/khaazz/eris.git#b9aaacff53fe6c811bc922f30417cb93ec9e5489"
+  resolved "git+https://github.com/khaazz/eris.git#716a770cb80e93ba66a64dbabefc112de98a523e"
   dependencies:
     ws "^7.2.1"
   optionalDependencies:
