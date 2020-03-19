@@ -24,7 +24,14 @@ class CodeAmiDeleteSwitch extends Command {
     }
 
     async execute( { msg } ) {
-        return this.sendSuccess(msg.channel, 'Code ami delete');
+        try {
+            await this.axon.userDB.deleteSwitch(msg.author.id);
+        } catch (err) {
+            this.logger.error('CODE-AMIS - ACPC: ', err);
+            return this.sendError(msg.channel, 'Erreur de suppression du code, contactez un administrateur');
+        }
+
+        return this.sendSuccess(msg.channel, 'Ton code ami Switch a été supprimé de ton profil !');
     }
 }
 

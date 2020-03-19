@@ -24,7 +24,14 @@ class CodeAmiDeleteAll extends Command {
     }
 
     async execute( { msg } ) {
-        return this.sendSuccess(msg.channel, 'Code ami delete');
+        try {
+            await this.axon.userDB.deleteAll(msg.author.id);
+        } catch (err) {
+            this.logger.error('CODE-AMIS - ALL: ', err);
+            return this.sendError(msg.channel, 'Erreur de suppression du code, contactez un administrateur');
+        }
+
+        return this.sendSuccess(msg.channel, 'Tous tes codes ont été supprimé de ton profil !');
     }
 }
 

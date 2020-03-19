@@ -34,8 +34,8 @@ class CodeAmiDelete extends Command {
         } );
     }
 
-    async execute( { msg } ) {
-        return this.sendSuccess(msg.channel, 'Code ami delete');
+    async execute(env) {
+        return this.sendHelp(env);
     }
 }
 
