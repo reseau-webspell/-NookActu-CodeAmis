@@ -23,7 +23,7 @@ class CodeAmi extends Command {
         this.info = {
             owners: ['KhaaZ'],
             name: 'ca',
-            description: 'Affiche les codes ami d\'une personne.',
+            description: 'Affiche les codes amis d\'une personne.',
             usage: 'ca <user>',
             examples: ['ca', 'ca @Sendaisies'],
         };
