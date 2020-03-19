@@ -169,77 +169,30 @@ class JsonManager {
     // **** INIT **** //
 
     /**
-     * Create a file and schema for Axon global file.
-     * @param {String} defaultPrefix Default prefix
-     * @returns {Promise<AxonJSON>} The newly created Schema || null
-     *
+     * Create a file and schema for a User
+     * @param {String} uID The user id
+     * @returns {Promise<UserJSON>} The newly created Schema || null
      * @memberof JsonManager
      */
-    async createAxonSchema(defaultPrefix) {
-        // create schema with default / basic values
-        const axonSchema = Object.assign( {}, this.axonDefault);
-        axonSchema.prefix = defaultPrefix;
-        axonSchema.createdAt = new Date();
-        axonSchema.updatedAt = new Date();
+    async createUser(uID) {
+        const userSchema = Object.assign( {}, this._userDefault);
+        userSchema.id = uID;
+        userSchema.createdAt = new Date();
 
-        const res = await this.writeFile(this._axonPath, this.toString(axonSchema) );
-        if (res) {
-            return axonSchema;
-        }
-        return null;
-    }
-
-    /**
-     * Create a file and schema for the given guild.
-     *
-     * @param {Array<String>} prefixes Array of prefixes
-     * @param {String} gID Guild ID
-     * @returns {Promise<GuildJSON>} The newly created Schema || null
-     *
-     * @memberof JsonManager
-     */
-    async createGuildSchema(prefixes, gID) {
-        // create schema with default / basic values
-        const guildSchema = Object.assign( {}, this.guildDefault);
-        guildSchema.guildID = gID;
-        guildSchema.createdAt = new Date();
-        guildSchema.updatedAt = new Date();
-        guildSchema.prefixes = prefixes;
-
-        const res = await this.writeFile(this._buildPath(gID), this.toString(guildSchema) );
-        if (res) {
-            return guildSchema;
-        }
-        return null;
+        return this.writeUser(uID, userSchema);
     }
 
     // **** FETCHERS **** //
 
     /**
-     * Fetch the axon schema
+     * Fetch the User schema for the given user
      *
-     * @returns {Promise<AxonJSON>} AxonSchema || null
-     *
+     * @param {String} uID User ID
+     * @returns {Promise<UserJSON>} GuildSchema || null
      * @memberof JsonManager
      */
-    async fetchAxonSchema() {
-        const res = await this.readFile(this._axonPath);
-        if (res) {
-            return this.toJSON(res);
-        }
-        return res;
-    }
-
-    /**
-     * Fetch the guild schema for the given guild
-     *
-     * @param {String} gID Guild ID
-     * @returns {Promise<GuildJSON>} GuildSchema || null
-     *
-     * @memberof JsonManager
-     */
-    async fetchGuildSchema(gID) {
-        const res = await this.readFile(this._buildPath(gID) );
+    async fetchUser(uID) {
+        const res = await this.readFile(this._buildPath(uID) );
         if (res) {
             return this.toJSON(res);
         }
@@ -254,74 +207,34 @@ class JsonManager {
      * @param {String} gID Guild ID
      * @param {String} key Value to update
      * @param {updateDBVal} value - The value to update for the given key (can be anything)
-     * @returns {Promise<GuildJSON>} GuildSchema || null
-     *
+     * @returns {Promise<UserJSON>} UserSchema || null
      * @memberof JsonManager
      */
-    updateGuildKey(gID, key, value) {
-        return this.getExecutor(gID).add(async() => {
-            const guildSchema = await this.fetchGuildSchema(gID);
+    updateUserKey(uID, key, value) {
+        return this.getExecutor(uID).add(async() => {
+            const userSchema = await this.fetchUser(uID);
 
-            guildSchema[key] = value;
-            guildSchema.updatedAt = new Date();
+            userSchema[key] = value;
             
-            return this.writeGuildSchema(gID, guildSchema);
-        }, true);
-    }
-
-    /**
-     * Update the schema with the given value
-     *
-     * @param {String} key Value to update
-     * @param {Object} value - The value to update for the given key (can be anything)
-     * @returns {Promise<AxonJSON>} AxonSchema || null
-     *
-     * @memberof JsonManager
-     */
-    updateAxonKey(key, value) {
-        return this.axonExecutor.add(async() => {
-            const axonSchema = await this.fetchAxonSchema();
-
-            axonSchema[key] = value;
-            axonSchema.updatedAt = new Date();
-
-            return this.writeAxonSchema(axonSchema);
+            return this.writeUser(uID, userSchema);
         }, true);
     }
 
     // **** OVERWRITER **** //
 
     /**
-     * Write the updated schema in the file.
+     * Write the updated schema in the file (for the given user).
      *
-     * @param {AxonJSON} schema AxonSchema
-     * @returns {Promise<AxonJSON>} AxonSchema || null
-     *
-     * @memberof JsonManager
-     */
-    async writeAxonSchema(schema) {
-        schema.updatedAt = new Date();
-        
-        const res = await this.writeFile(this._axonDefault, this.toString(schema) );
-        if (res) {
-            return schema;
-        }
-        return null;
-    }
-
-    /**
-     * Write the updated schema in the file (for the given guild).
-     *
-     * @param {String} gID Guild ID
-     * @param {GuildJSON} schema GuildSchema
-     * @returns {Promise<GuildJSON>} GuildSchema || null
+     * @param {String} uID User ID
+     * @param {UserJSON} schema GuildSchema
+     * @returns {Promise<UserJSON>} GuildSchema || null
      *
      * @memberof JsonManager
      */
-    async writeGuildSchema(gID, schema) {
+    async writeUser(uID, schema) {
         schema.updatedAt = new Date();
 
-        const res = await this.writeFile(this._buildPath(gID), this.toString(schema) );
+        const res = await this.writeFile(this._buildPath(uID), this.toString(schema) );
         if (res) {
             return schema;
         }
