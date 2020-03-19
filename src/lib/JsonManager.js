@@ -1,6 +1,6 @@
 import userDefault from './UserDefault.json';
 
-import AsyncQueue from 'axoncore';
+import { AsyncQueue } from 'axoncore';
 
 import fs from 'fs';
 import util from 'util';
@@ -9,7 +9,7 @@ const writeFileAsync = util.promisify(fs.writeFile);
 
 /**
  * @typedef {{
- * id: String; ds: String; acpc: String; switch: String
+ * id: String; ds: String; acpc: String; switch: String, updatedAt: String, createdAt: String
  * }} UserJSON
  * @typedef {String|Boolean|Object.<string, any>|Array<any>|Number|Date} updateDBVal
  */
@@ -35,7 +35,7 @@ class JsonManager {
          */
         this._userDefault = userDefault;
 
-        basePath = `${basePath}/Users/`;
+        basePath = `${basePath}Users/`;
         if (!fs.existsSync(basePath) ) {
             console.log('The DB directory doesn\'t exist. Creating...');
             fs.mkdirSync(basePath, { recursive: true } );
@@ -51,16 +51,6 @@ class JsonManager {
     }
 
     /**
-     * Returns default data structure for user
-     *
-     * @readonly
-     * @memberof JsonManager
-     */
-    get userefault() {
-        return this._userDefault;
-    }
-
-    /**
      * Get User executor
      * @param {String} userID User ID
      * @returns {AsyncQueue}
@@ -68,7 +58,6 @@ class JsonManager {
      */
     getExecutor(userID) {
         let executor = this.userExecutors[userID];
-
         if (!executor) {
             executor = new AsyncQueue();
             this.userExecutors[userID] = executor;
@@ -161,7 +150,6 @@ class JsonManager {
             await writeFileAsync(path, content, 'utf8');
             return true;
         } catch (err) {
-            console.log(err);
             return false;
         }
     }
@@ -194,7 +182,8 @@ class JsonManager {
     async fetchUser(uID) {
         const res = await this.readFile(this._buildPath(uID) );
         if (res) {
-            return this.toJSON(res);
+            const r = this.toJSON(res);
+            return r;
         }
         return res;
     }
@@ -213,7 +202,6 @@ class JsonManager {
     updateUserKey(uID, key, value) {
         return this.getExecutor(uID).add(async() => {
             const userSchema = await this.fetchUser(uID);
-
             userSchema[key] = value;
             
             return this.writeUser(uID, userSchema);
