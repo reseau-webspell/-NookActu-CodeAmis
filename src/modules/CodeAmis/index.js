@@ -13,8 +13,8 @@ class CodeAmis extends Module {
         this.serverBypass = true;
 
         this.info = {
-            name: 'Code amis module',
-            description: 'Main module',
+            name: 'Code-Amis',
+            description: 'Code Amis module - add / remove code amis',
         };
 
         this.permissions = new CommandPermissions(this, {}, true);

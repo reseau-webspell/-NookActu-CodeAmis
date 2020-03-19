@@ -19,7 +19,7 @@ class Ping extends Command {
         this.info = {
             owners: ['KhaaZ'],
             name: 'ping',
-            description: 'Ping the bot.',
+            description: 'Ping le bot.',
             usage: 'ping',
             examples: ['ping'],
         };

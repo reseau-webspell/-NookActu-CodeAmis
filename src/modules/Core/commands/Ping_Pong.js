@@ -1,4 +1,4 @@
-import { Command, CommandOptions, CommandPermissions, CommandResponse } from 'axoncore';
+import { Command, CommandOptions, CommandResponse } from 'axoncore';
 
 class Pong extends Command {
     constructor(module) {
@@ -13,7 +13,7 @@ class Pong extends Command {
         this.info = {
             owners: ['KhaaZ'],
             name: 'ping pong',
-            description: 'Ping the bot.',
+            description: 'Ping pong le bot.',
             usage: 'ping pong',
             examples: ['ping pong'],
         };
@@ -22,17 +22,6 @@ class Pong extends Command {
             argsMin: 0,
             cooldown: 10000,
             guildOnly: false,
-            hidden: true,
-            sendPermissionMessage: true,
-        } );
-
-        this.permissions = new CommandPermissions(this, {
-            author: {
-                needed: ['manageGuild'],
-            },
-            staff: {
-                bypass: [...this.axon.staff.owners, ...this.axon.staff.admins],
-            },
         } );
     }
 
