@@ -51,7 +51,7 @@ class CodeAmi extends Command {
                 fields: [
                     { name: '**[CODE 3DS]**', value: codeAmis.ds, inline: true },
                     { name: '**[CODE SWITCH]**', value: codeAmis.switch, inline: true },
-                    { name: '**[CODE POCKET CAMP]**', value: codeAmis.acpc, inline: false },
+                    { name: '**[CODE ACPC]**', value: codeAmis.acpc, inline: false },
                 ],
                 thumbnail: {
                     url: user.avatarURL,
