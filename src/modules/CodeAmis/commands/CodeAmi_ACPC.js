@@ -1,24 +1,14 @@
 import { Command, CommandOptions } from 'axoncore';
 
-import Delete from './CodeAmi_Delete';
-import DS from './CodeAmi_DS';
-import ACPC from './CodeAmi_ACPC';
-import Switch from './CodeAmi_Switch';
-
-class CodeAmi extends Command {
+class CodeAmiACPC extends Command {
     constructor(module) {
         super(module);
 
-        this.label = 'codeami';
-        this.aliases = ['codeami', 'ca'];
+        this.label = 'acpc';
+        this.aliases = ['acpc', 'ACPC'];
 
-        this.hasSubcmd = true;
-        this.subcmds = [
-            Delete,
-            DS,
-            ACPC,
-            Switch,
-        ];
+        this.isSubcmd = true;
+        this.hasSubcmd = false;
 
         this.info = {
             owners: ['KhaaZ'],
@@ -38,4 +28,4 @@ class CodeAmi extends Command {
     }
 }
 
-export default CodeAmi;
+export default CodeAmiACPC;
