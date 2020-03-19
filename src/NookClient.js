@@ -1,4 +1,5 @@
 import { AxonClient } from 'axoncore';
+import UserDB from './lib/UserDB';
 
 import * as modules from './modules/index';
 
@@ -13,6 +14,7 @@ import * as modules from './modules/index';
 class NookClient extends AxonClient {
     constructor(client, axonOptions) {
         super(client, axonOptions, modules);
+        this.userDB = new UserDB(axonOptions.extensions.DBLocation);
     }
 
     onInit() {
