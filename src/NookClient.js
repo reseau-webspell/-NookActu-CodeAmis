@@ -18,7 +18,7 @@ class NookClient extends AxonClient {
     }
 
     onInit() {
-        console.log('on init');
+        //
     }
 
     onStart() {
