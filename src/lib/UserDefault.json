@@ -1,8 +1,8 @@
 {
     "id": "",
-    "ds": "",
-    "switch": "",
-    "acpc": "",
+    "ds": "xxxx-xxxx-xxxx",
+    "switch": "SW-xxxx-xxxx-xxxx",
+    "acpc": "xxxx-xxxx-xxx",
     "createdAt": "",
     "updatedAt": ""
 }
