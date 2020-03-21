@@ -7,7 +7,6 @@ class CodeAmiDeleteAll extends Command {
         this.label = 'all';
         this.aliases = ['all'];
 
-        this.isSubcmd = true;
         this.hasSubcmd = false;
 
         this.info = {

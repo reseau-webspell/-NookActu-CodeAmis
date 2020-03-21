@@ -7,7 +7,6 @@ class CodeAmiDeleteACPC extends Command {
         this.label = 'acpc';
         this.aliases = ['acpc', 'ACPC'];
 
-        this.isSubcmd = true;
         this.hasSubcmd = false;
 
         this.info = {

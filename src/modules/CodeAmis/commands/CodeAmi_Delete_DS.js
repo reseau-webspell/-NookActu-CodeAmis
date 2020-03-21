@@ -12,7 +12,6 @@ class CodeAmiDeleteDS extends Command {
             '3DS',
         ];
 
-        this.isSubcmd = true;
         this.hasSubcmd = false;
 
         this.info = {

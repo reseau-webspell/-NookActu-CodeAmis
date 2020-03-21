@@ -13,12 +13,6 @@ class CodeAmi extends Command {
         this.aliases = ['codeami', 'ca'];
 
         this.hasSubcmd = true;
-        this.subcmds = [
-            Delete,
-            DS,
-            ACPC,
-            Switch,
-        ];
 
         this.info = {
             owners: ['KhaaZ'],
@@ -35,6 +29,15 @@ class CodeAmi extends Command {
         this.permissions = new CommandPermissions(this, {
             bot: ['sendMessages', 'embedLinks'],
         } );
+    }
+
+    init() {
+        return [
+            Delete,
+            DS,
+            ACPC,
+            Switch,
+        ];
     }
 
     async execute( { msg, args } ) {

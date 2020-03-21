@@ -7,7 +7,6 @@ class CodeAmiDeleteSwitch extends Command {
         this.label = 'switch';
         this.aliases = ['switch'];
 
-        this.isSubcmd = true;
         this.hasSubcmd = false;
 
         this.info = {

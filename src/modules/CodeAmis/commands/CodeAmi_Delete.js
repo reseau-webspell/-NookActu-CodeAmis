@@ -12,14 +12,7 @@ class CodeAmiDelete extends Command {
         this.label = 'delete';
         this.aliases = ['remove', 'suppr'];
 
-        this.isSubcmd = true;
         this.hasSubcmd = true;
-        this.subcmds = [
-            DS,
-            ACPC,
-            Switch,
-            All,
-        ];
 
         this.info = {
             owners: ['KhaaZ'],
@@ -32,6 +25,15 @@ class CodeAmiDelete extends Command {
         this.options = new CommandOptions(this, {
             argsMin: 0,
         } );
+    }
+
+    init() {
+        return [
+            DS,
+            ACPC,
+            Switch,
+            All,
+        ];
     }
 
     async execute(env) {
