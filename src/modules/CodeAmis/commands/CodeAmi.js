@@ -1,4 +1,4 @@
-import { Command, CommandOptions, CommandPermissions } from 'axoncore';
+import { Command, CommandOptions, CommandPermissions, CommandResponse } from 'axoncore';
 
 import Delete from './CodeAmi_Delete';
 import DS from './CodeAmi_DS';
@@ -49,7 +49,7 @@ class CodeAmi extends Command {
         }
         const codeAmis = await this.axon.userDB.getOrFetch(user.id);
         
-        return this.sendMessage(msg.channel, {
+        this.sendMessage(msg.channel, {
             embed: {
                 fields: [
                     { name: '**[CODE 3DS]**', value: codeAmis.ds, inline: true },
@@ -63,6 +63,7 @@ class CodeAmi extends Command {
                 color: 10076927,
             },
         } );
+        return new CommandResponse( { success: true } );
     }
 }
 
