@@ -570,9 +570,9 @@ enquirer@^2.3.2:
   dependencies:
     ansi-colors "^3.2.1"
 
-"eris@git+https://github.com/khaazz/eris.git#ratelimit":
-  version "0.11.2"
-  resolved "git+https://github.com/khaazz/eris.git#716a770cb80e93ba66a64dbabefc112de98a523e"
+eris@abalabahaha/eris#dev:
+  version "0.12.0"
+  resolved "https://codeload.github.com/abalabahaha/eris/tar.gz/da240591e7504075a24ae8d8e0318c79ded9b90a"
   dependencies:
     ws "^7.2.1"
   optionalDependencies:
