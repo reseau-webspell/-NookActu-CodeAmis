@@ -31,15 +31,15 @@ class NookClient extends AxonClient {
 
     initStatus() {
         this.botClient.editStatus(null, {
-            name: `NookAmis | ${this.settings.prefixes[0]}help`,
+            name: `${this.settings.prefixes[0]}infos`,
             type: 0,
         } );
     }
 
     // eslint-disable-next-line no-unused-vars
-    $sendFullHelp(msg, guildConfig) {
+    sendFullHelp(msg, guildConfig) {
         // override sendFullHelp method
-        return this.axonUtils.sendMessage(msg.channel, 'Full Help override');
+        return this.getCommand('infos').execute(msg);
     }
 
     // eslint-disable-next-line no-unused-vars
