@@ -36,7 +36,7 @@ class CodeAmiDS extends Command {
         }
 
         try {
-            await this.axon.userDB.addDS(msg.author.id, args[0] );
+            await this.module.userDB.addDS(msg.author.id, args[0] );
         } catch (err) {
             this.logger.error('CODE-AMIS - 3DS: ', err);
             return this.sendError(msg.channel, 'Erreur d\'ajout du code, contactez un administrateur');

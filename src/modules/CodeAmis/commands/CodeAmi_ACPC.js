@@ -30,7 +30,7 @@ class CodeAmiACPC extends Command {
         }
 
         try {
-            await this.axon.userDB.addACPC(msg.author.id, args[0] );
+            await this.module.userDB.addACPC(msg.author.id, args[0] );
         } catch (err) {
             this.logger.error('CODE-AMIS - ACPC: ', err);
             return this.sendError(msg.channel, 'Erreur d\'ajout du code, contactez un administrateur');

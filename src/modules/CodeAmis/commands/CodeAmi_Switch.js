@@ -31,7 +31,7 @@ class CodeAmiSwitch extends Command {
         }
 
         try {
-            await this.axon.userDB.addSwitch(msg.author.id, args[0] );
+            await this.module.userDB.addSwitch(msg.author.id, args[0] );
         } catch (err) {
             this.logger.error('CODE-AMIS - Switch: ', err);
             return this.sendError(msg.channel, 'Erreur d\'ajout du code, contactez un administrateur');

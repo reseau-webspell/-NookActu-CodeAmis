@@ -29,7 +29,7 @@ class CodeAmiDeleteDS extends Command {
 
     async execute( { msg } ) {
         try {
-            await this.axon.userDB.deleteDS(msg.author.id);
+            await this.module.userDB.deleteDS(msg.author.id);
         } catch (err) {
             this.logger.error('CODE-AMIS - ACPC: ', err);
             return this.sendError(msg.channel, 'Erreur de suppression du code, contactez un administrateur');

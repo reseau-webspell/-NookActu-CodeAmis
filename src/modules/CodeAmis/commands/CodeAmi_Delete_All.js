@@ -24,7 +24,7 @@ class CodeAmiDeleteAll extends Command {
 
     async execute( { msg } ) {
         try {
-            await this.axon.userDB.deleteAll(msg.author.id);
+            await this.module.userDB.deleteAll(msg.author.id);
         } catch (err) {
             this.logger.error('CODE-AMIS - ALL: ', err);
             return this.sendError(msg.channel, 'Erreur de suppression du code, contactez un administrateur');

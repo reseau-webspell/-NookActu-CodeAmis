@@ -1,5 +1,7 @@
 import { Module, CommandPermissions } from 'axoncore';
 
+import UserDB from '../../lib/UserDB';
+
 import * as commands from './commands/index';
 // import * as listeners from './commands/index';
 
@@ -18,6 +20,8 @@ class CodeAmis extends Module {
         };
 
         this.permissions = new CommandPermissions(this, {}, true);
+
+        this.userDB = new UserDB(this.axon._DBLocation);
     }
 
     init() {

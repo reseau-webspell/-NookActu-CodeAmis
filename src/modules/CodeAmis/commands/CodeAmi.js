@@ -47,7 +47,7 @@ class CodeAmi extends Command {
         if (!user) {
             return this.sendError(msg.channel, 'Mentionnez un utilisateur valide!');
         }
-        const codeAmis = await this.axon.userDB.getOrFetch(user.id);
+        const codeAmis = await this.module.userDB.getOrFetch(user.id);
         
         this.sendMessage(msg.channel, {
             embed: {
