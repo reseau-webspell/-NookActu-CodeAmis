@@ -37,8 +37,7 @@ class All extends Command {
                 this.axon.navetDB.delete(e.id);
             }
             if (!this.module.navetDB.isExpired(e) ) {
-                e.username = user.username;
-                all.push(e);
+                all.push(Object.assign( { username: user.username }, e) );
             }
         }
         const display = this.chunk(all, chunk).map( (u, i) => `${( (chunk - 1) * 10) + i + 1}) [${u.username}] - [${u.price}]`);

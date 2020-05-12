@@ -32,8 +32,7 @@ class Top extends Command {
                 this.axon.navetDB.delete(e.id);
             }
             if (!this.module.navetDB.isExpired(e) ) {
-                e.username = user.username;
-                top5.push(e);
+                top5.push(Object.assign( { username: user.username }, e) );
             }
             if (top5.length === 5) {
                 break;
