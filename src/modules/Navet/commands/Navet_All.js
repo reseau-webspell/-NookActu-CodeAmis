@@ -35,7 +35,7 @@ class All extends Command {
         for (const e of this.module.navetDB.cache) {
             const user = msg.channel.guild.members.get(e.id);
             if (!user) {
-                this.axon.navetDB.delete(e.id);
+                this.module.navetDB.delete(e.id);
             }
             if (!this.module.navetDB.isExpired(e) ) {
                 all.push(Object.assign( { username: user.username }, e) );
