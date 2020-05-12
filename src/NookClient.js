@@ -36,8 +36,7 @@ class NookClient extends AxonClient {
 
     // eslint-disable-next-line no-unused-vars
     sendFullHelp(msg, guildConfig) {
-        // override sendFullHelp method
-        return this.getCommand('infos').execute(msg);
+        return this.getCommand('infos').execute( { msg } );
     }
 
     // eslint-disable-next-line no-unused-vars
