@@ -46,7 +46,7 @@ class Navet extends Command {
             if (args[0] < MIN_NAVET || args[0] > MAX_NAVET) {
                 return this.sendError(msg.channel, 'Donnez un cours de navet valide !');
             }
-            this.module.navetDB.add(msg.author.id, args[0] );
+            this.module.navetDB.add(msg.author.id, parseInt(args[0] ) );
             return this.sendSuccess(msg.channel, 'Ton cours de navet a été enregistré !');
         }
         const user = args.length > 0
