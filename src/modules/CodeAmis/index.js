@@ -21,7 +21,7 @@ class CodeAmis extends Module {
 
         this.permissions = new CommandPermissions(this, {}, true);
 
-        this.userDB = new UserDB(this.axon._DBLocation);
+        this.userDB = new UserDB(this.axon.custom.DBLocation);
     }
 
     init() {

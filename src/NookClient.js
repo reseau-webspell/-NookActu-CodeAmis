@@ -13,8 +13,6 @@ import * as modules from './modules/index';
 class NookClient extends AxonClient {
     constructor(client, axonOptions) {
         super(client, axonOptions, modules);
-
-        this._DBLocation = axonOptions.extensions.DBLocation;
     }
 
     onInit() {
