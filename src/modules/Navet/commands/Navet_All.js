@@ -38,7 +38,7 @@ class All extends Command {
                 this.module.navetDB.delete(e.id);
             }
             if (!this.module.navetDB.isExpired(e) ) {
-                all.push(Object.assign( { username: user.username }, e) );
+                all.push( { username: user.username, price: e.price } );
             }
         }
         const display = this.chunk(all, chunk).map( (u, i) => `${chunk + i + 1}) [${u.username}] - [${u.price}]`);
