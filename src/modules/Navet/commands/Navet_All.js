@@ -18,14 +18,15 @@ class All extends Command {
         };
 
         this.options = new CommandOptions(this, {
+            cooldown: 7000,
             argsMin: 0,
         } );
     }
 
     async execute( { msg, args } ) {
-        const chunk = args[0] || 1;
-        if (this.module.navetDB.cache.length < (chunk - 1) * 10) {
-            return this.sendError(msg.channel, 'Page invalide !');
+        const chunk = this.calculateChunk(args[0] || 1);
+        if (this.module.navetDB.cache.length < chunk) {
+            return this.sendError(msg.channel, 'Page invalide !', { triggerCooldown: false } );
         }
         
         const date = new Date();
@@ -40,7 +41,7 @@ class All extends Command {
                 all.push(Object.assign( { username: user.username }, e) );
             }
         }
-        const display = this.chunk(all, chunk).map( (u, i) => `${( (chunk - 1) * 10) + i + 1}) [${u.username}] - [${u.price}]`);
+        const display = this.chunk(all, chunk).map( (u, i) => `${chunk + i + 1}) [${u.username}] - [${u.price}]`);
         await this.sendMessage(msg.channel, {
             embed: {
                 timestamp: date,
@@ -52,8 +53,13 @@ class All extends Command {
         return new CommandResponse( { success: true } );
     }
 
-    chunk(arr, i) {
-        return arr.slice( (i - 1) * 10, 10);
+    calculateChunk(i) {
+        return (i - 1) * 10;
+    }
+
+    chunk(arr, start) {
+        const end = start + 10;
+        return arr.slice(start, end);
     }
 }
 
