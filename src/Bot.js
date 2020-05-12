@@ -19,7 +19,9 @@ const axonOptions = new AxonOptions( {
     info: botConfig.info,
     staff: botConfig.staff,
     template: botConfig.template,
-    custom: { },
+    custom: {
+        DBLocation: `${__dirname}/../database/`,
+    },
 },
 secret.webhooks,
 {
