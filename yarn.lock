@@ -571,8 +571,8 @@ enquirer@^2.3.2:
     ansi-colors "^3.2.1"
 
 eris@abalabahaha/eris#dev:
-  version "0.12.0"
-  resolved "https://codeload.github.com/abalabahaha/eris/tar.gz/da240591e7504075a24ae8d8e0318c79ded9b90a"
+  version "0.13.1"
+  resolved "https://codeload.github.com/abalabahaha/eris/tar.gz/529dbc3bb4085f013105288b67bd842faf3fd370"
   dependencies:
     ws "^7.2.1"
   optionalDependencies:
