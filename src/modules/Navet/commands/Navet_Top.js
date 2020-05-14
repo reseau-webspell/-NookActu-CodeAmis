@@ -39,6 +39,10 @@ class Top extends Command {
             }
         }
         const display = top5.map( (u, i) => `${i + 1}) [${u.username}] - [${u.price}]`);
+        if (display.length < 1) {
+            return this.sendError(msg.channel, 'Personne n\'a de cours de navet enregistré pour le moment.');
+        }
+        
         await this.sendMessage(msg.channel, {
             embed: {
                 timestamp: date,

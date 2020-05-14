@@ -41,7 +41,12 @@ class All extends Command {
                 all.push( { username: user.username, price: e.price } );
             }
         }
+
         const display = this.chunk(all, chunk).map( (u, i) => `${chunk + i + 1}) [${u.username}] - [${u.price}]`);
+        if (display.length < 1) {
+            return this.sendError(msg.channel, 'Personne n\'a de cours de navet enregistré pour le moment.');
+        }
+
         await this.sendMessage(msg.channel, {
             embed: {
                 timestamp: date,
