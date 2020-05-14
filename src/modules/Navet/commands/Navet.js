@@ -57,12 +57,17 @@ class Navet extends Command {
             return this.sendError(msg.channel, 'Mentionnez un utilisateur valide !');
         }
 
-        const price = this.module.navetDB.get(user.id) || 'N/A';
-
-        if (args.length > 0) {
-            return this.sendSuccess(msg.channel, `Le cours de navet actuel de ${user.username} est de **${price}** clochettes !`);
+        const price = this.module.navetDB.get(user.id);
+        if (price) {
+            if (args.length > 0) {
+                return this.sendSuccess(msg.channel, `Le cours de navet actuel de ${user.username} est de **${price}** clochettes !`);
+            }
+            return this.sendSuccess(msg.channel, `Ton cours de navet actuel est de **${price}** clochettes !`);
         }
-        return this.sendSuccess(msg.channel, `Ton cours de navet actuel est de **${price}** clochettes !`);
+        if (args.length > 0) {
+            return this.sendError(msg.channel, `${user.username} n'a actuellement pas de cours de navet enregistré.`);
+        }
+        return this.sendError(msg.channel, `Vous n'avez actuellement pas de cours de navet enregistré.`);
     }
 }
 
