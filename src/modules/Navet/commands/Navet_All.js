@@ -13,8 +13,8 @@ class All extends Command {
             owners: ['KhaaZ'],
             name: 'navet all',
             description: 'Voir tout les cours de navet du moment classés par ordre décroissant.',
-            usage: 'navet all',
-            examples: ['navet all'],
+            usage: 'navet all [page]',
+            examples: ['navet all', 'navet all 2'],
         };
 
         this.options = new CommandOptions(this, {
