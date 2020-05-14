@@ -6,7 +6,7 @@ const RESET_POINT_EVENING = 22;
 // eslint-disable-next-line no-magic-numbers
 const DAY = 24 * 3600 * 1000;
 
-const PARIS_TIME = 2; // UTC+2
+// const PARIS_TIME = 2; // UTC+2
 
 class NavetDB {
     constructor(dbLocation) {
@@ -69,8 +69,8 @@ class NavetDB {
     getExpiryDate() {
         const today = new Date();
         const now = Date.now();
-        const todayNoon = Date.parse(new Date(today.getFullYear(), today.getMonth(), today.getDate(), RESET_POINT_NOON + PARIS_TIME) );
-        const todayEvening = Date.parse(new Date(today.getFullYear(), today.getMonth(), today.getDate(), RESET_POINT_EVENING + PARIS_TIME) );
+        const todayNoon = Date.parse(new Date(today.getFullYear(), today.getMonth(), today.getDate(), RESET_POINT_NOON) );
+        const todayEvening = Date.parse(new Date(today.getFullYear(), today.getMonth(), today.getDate(), RESET_POINT_EVENING) );
         if (now < todayNoon) {
             return todayNoon;
         }
