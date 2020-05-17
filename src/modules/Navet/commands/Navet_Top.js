@@ -18,6 +18,7 @@ class Top extends Command {
         };
 
         this.options = new CommandOptions(this, {
+            cooldown: 5000,
             argsMin: 0,
         } );
 
