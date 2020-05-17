@@ -12,7 +12,7 @@ class Navet extends Command {
         super(module);
 
         this.label = 'navet';
-        this.aliases = ['navet'];
+        this.aliases = ['navet', 'navets'];
 
         this.hasSubcmd = true;
 
