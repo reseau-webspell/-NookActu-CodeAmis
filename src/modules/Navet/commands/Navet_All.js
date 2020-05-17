@@ -38,11 +38,11 @@ class All extends Command {
                 this.module.navetDB.delete(e.id);
             }
             if (!this.module.navetDB.isExpired(e) ) {
-                all.push( { username: user.username, price: e.price } );
+                all.push( { id: e.id, price: e.price } );
             }
         }
 
-        const display = this.chunk(all, chunk).map( (u, i) => `${chunk + i + 1}) [${u.username}] - [${u.price}]`);
+        const display = this.chunk(all, chunk).map( (u, i) => `${chunk + i + 1}) [<@${u.id}>] - [${u.price}]`);
         if (display.length < 1) {
             return this.sendError(msg.channel, 'Personne n\'a de cours de navet enregistré pour le moment.');
         }
