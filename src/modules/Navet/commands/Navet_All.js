@@ -1,4 +1,4 @@
-import { Command, CommandOptions, CommandResponse } from 'axoncore';
+import { Command, CommandOptions, CommandResponse, CommandPermissions } from 'axoncore';
 
 class All extends Command {
     constructor(module) {
@@ -20,6 +20,10 @@ class All extends Command {
         this.options = new CommandOptions(this, {
             cooldown: 7000,
             argsMin: 0,
+        } );
+
+        this.permissions = new CommandPermissions(this, {
+            guilds: ['444277614346108939'],
         } );
     }
 
