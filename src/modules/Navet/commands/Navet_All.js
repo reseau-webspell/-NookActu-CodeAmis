@@ -25,7 +25,9 @@ class All extends Command {
         } );
 
         this.permissions = new CommandPermissions(this, {
-            guilds: ['444277614346108939'],
+            guilds: {
+                needed: ['444277614346108939'],
+            },
         } );
     }
 
