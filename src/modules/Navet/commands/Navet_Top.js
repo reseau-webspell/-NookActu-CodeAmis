@@ -20,6 +20,8 @@ class Top extends Command {
         this.options = new CommandOptions(this, {
             cooldown: 5000,
             argsMin: 0,
+            sendPermissionMessage: true,
+            invalidPermissionMessage: 'Cette commande est limitee au serveur NookActus.',
         } );
 
         this.permissions = new CommandPermissions(this, {
