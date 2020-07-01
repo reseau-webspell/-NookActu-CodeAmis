@@ -8,11 +8,12 @@ const SAVE_ROTATION = 10;
 // eslint-disable-next-line no-magic-numbers
 const MINUTE = 60 * 1000;
 
-class NavetWorker {
-    constructor(navetDB, dbLocation) {
-        this.db = navetDB;
+class Worker {
+    constructor(DBcache, dbLocation, dbName) {
+        this.db = DBcache;
         this.interval = SAVE_ROTATION * MINUTE;
-        this.path = `${dbLocation}NavetDB.json`;
+        this.dbName = dbName;
+        this.path = `${dbLocation}${dbName}DB.json`;
 
         if (!fs.existsSync(dbLocation) ) {
             console.log('The DB directory doesn\'t exist. Creating...');
@@ -25,7 +26,7 @@ class NavetWorker {
     init() {
         setInterval( () => {
             this.saveDB();
-            console.log('Saving Navet DB...');
+            console.log(`Saving ${this.dbName} DB...`);
         }, this.interval);
     }
 
@@ -70,4 +71,4 @@ class NavetWorker {
     }
 }
 
-export default NavetWorker;
+export default Worker;
