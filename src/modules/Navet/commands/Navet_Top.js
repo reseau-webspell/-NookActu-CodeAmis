@@ -41,13 +41,13 @@ class Top extends Command {
                 this.module.navetDB.delete(e.id);
             }
             if (!this.module.navetDB.isExpired(e) ) {
-                top5.push( { id: e.id, price: e.price } );
+                top5.push( { username: user.username, price: e.price } );
             }
             if (top5.length === 5) {
                 break;
             }
         }
-        const display = top5.map( (u, i) => `${i + 1}) [<@${u.id}>] - [${u.price}]`);
+        const display = top5.map( (u, i) => `${i + 1}) [${u.username}] - [${u.price}]`);
         if (display.length < 1) {
             return this.sendError(msg.channel, 'Personne n\'a de cours de navet enregistré pour le moment.');
         }
