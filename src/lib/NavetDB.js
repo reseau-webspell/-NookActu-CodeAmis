@@ -1,4 +1,4 @@
-import NavetWorker from './NavetWorker';
+import Worker from './Worker';
 
 
 const RESET_POINT_NOON = 12;
@@ -10,7 +10,7 @@ const DAY = 24 * 3600 * 1000;
 
 class NavetDB {
     constructor(dbLocation) {
-        this.worker = new NavetWorker(this, dbLocation);
+        this.worker = new Worker(this, dbLocation, 'Navet');
         this.cache = [];
         this.loadCache();
     }
