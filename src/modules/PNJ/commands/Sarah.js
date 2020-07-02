@@ -1,4 +1,4 @@
-import { Command, CommandOptions } from 'axoncore';
+import { Command, CommandOptions, CommandPermissions } from 'axoncore';
 
 class Sarah extends Command {
     constructor(module) {
@@ -19,6 +19,12 @@ class Sarah extends Command {
 
         this.options = new CommandOptions(this, {
             argsMin: 0,
+        } );
+
+        this.permissions = new CommandPermissions(this, {
+            guilds: {
+                needed: ['444277614346108939'],
+            },
         } );
     }
 
