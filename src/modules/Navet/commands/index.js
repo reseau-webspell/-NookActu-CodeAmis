@@ -1,1 +1,1 @@
-export { default as Ping } from './Navet';
+export { default as Navet } from './Navet';
