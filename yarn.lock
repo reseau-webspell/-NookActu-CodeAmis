@@ -277,10 +277,9 @@ axios@^0.19.0:
   dependencies:
     follow-redirects "1.5.10"
 
-axoncore@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/axoncore/-/axoncore-2.0.0.tgz#bfec7409012ad79e3eab9d4569a2d1d234b1757a"
-  integrity sha512-szlbLth+31VJVbtyC5OS9zcNKII+nIvRvC1d2HzmRlfzJS0OmXsaytFbqO5go5w1fEFFkCZ/n8F0PN4lyfQ2rw==
+axoncore@khaaz/AxonCore#dev:
+  version "2.0.1"
+  resolved "https://codeload.github.com/khaaz/AxonCore/tar.gz/5186efb56696ce4cc12da1caa7751aebc784d0d5"
   dependencies:
     esm "^3.2.25"
     inquirer "^7.1.0"
@@ -738,6 +737,11 @@ eventemitter2@~0.4.14:
   version "0.4.14"
   resolved "https://registry.yarnpkg.com/eventemitter2/-/eventemitter2-0.4.14.tgz#8f61b75cde012b2e9eb284d4545583b5643b61ab"
   integrity sha1-j2G3XN4BKy6esoTUVFWDtWQ7Yas=
+
+eventemitter3@^4.0.4:
+  version "4.0.4"
+  resolved "https://registry.yarnpkg.com/eventemitter3/-/eventemitter3-4.0.4.tgz#b5463ace635a083d018bdc7c917b4c5f10a85384"
+  integrity sha512-rlaVLnVxtxvoyLsQQFBx53YmXHDxRIzzTLbdfxqi4yocpSjAxXwkU0cScM5JgSKMqEhrZpnvQ2D9gjylR0AimQ==
 
 extend@~3.0.2:
   version "3.0.2"
